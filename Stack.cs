@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Stack
 {
-    class Stack
+    class Stack<T>
     {
-        object [] arr;
+        T [] arr;
         int nextIndex;
 
         public Stack(int size)
         {
-            arr = new object[size];
+            arr = new T[size];
             nextIndex = 0;
         }
 
-        public void Push(object a)
+        public void Push(T a)
         {
             if(a==null)
             {
@@ -27,13 +27,13 @@ namespace Stack
             nextIndex++;
         }
 
-        public object Pop()
+        public T Pop()
         {
             if(nextIndex==0)
             {
                 throw new InvalidOperationException();
             }
-            object top = arr[nextIndex - 1];
+            T top = arr[nextIndex - 1];
             nextIndex--;
             return top;
         }
